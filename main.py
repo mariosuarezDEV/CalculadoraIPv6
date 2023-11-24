@@ -5,7 +5,7 @@ def main(page: ft.Page):
     
     #CAMBIAR TEMA DE LA APP
     page.window_resizable=True #no permitir la resizable
-    page.theme_mode=ft.ThemeMode.LIGHT #cambiar el tema de la aplicación
+    page.theme_mode=ft.ThemeMode.DARK #cambiar el tema de la aplicación
     page.window_max_width=470 #tamaño de ancho
     page.window_max_height=720 #tamaño de alto
     page.window_min_width=420
@@ -21,6 +21,11 @@ def main(page: ft.Page):
     tb1 = ft.TextField(label="Dirección IPv6")
     page.add(tb1)
     
+    #agregar un espacio para que el boton y el textfield tengan una separación y no se vean pegados
+    
+    boton_enviar = ft.ElevatedButton("Calcular la direccion")
+    page.add(boton_enviar) #agregar el boton para calcular la direccion ip (esto hace la funcionalidad)
+    
     #menu de navegacion
     page.navigation_bar = ft.NavigationBar(
         destinations=[
@@ -29,7 +34,5 @@ def main(page: ft.Page):
             ft.NavigationDestination(icon=ft.icons.ARTICLE_ROUNDED, label="Ambas reglas")
         ]
     )
-    
-    page.add(ft.Text("Calculadora")) #mostrar el contenido
     
 ft.app(target=main)
