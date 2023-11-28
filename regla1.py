@@ -13,7 +13,7 @@ def regla2(direccion_ipv6):
     for bloque in bloques:
         if bloque == '0000':
             segmentos += 1
-        else:
+        else:#prueba
             direccion_simplificada.append(bloque)  # Agregar bloque a la dirección simplificada
             if segmentos > 0:
                 direccion_simplificada.append('')  # Agregar "::" si hay segmentos de ceros antes
