@@ -58,7 +58,17 @@ def main(page: ft.Page):
             #agregar un espacio para que el boton y el textfield tengan una separación y no se vean pegados
             page.add(ft.Text(value="\n"))
             #agregar el boton para calcular
-            boton_enviar = ft.ElevatedButton("Calcular la dirección", height=60)
+            def mostrar_respuesta(e):
+                direccion_con_regla_dos = r1.regla2(tb1.value)
+                dlg = ft.AlertDialog(
+                    title=ft.Text(direccion_con_regla_dos)
+                )
+                
+                page.dialog = dlg
+                dlg.open = True
+                page.update()
+                
+            boton_enviar = ft.ElevatedButton("Calcular la dirección", height=60, on_click=mostrar_respuesta)
             page.add(boton_enviar) #agregar el boton para calcular la direccion ip (esto hace la funcionalidad)
             
         elif destino_navegacion == 2: #ambas reglas
@@ -68,7 +78,17 @@ def main(page: ft.Page):
             #agregar un espacio para que el boton y el textfield tengan una separación y no se vean pegados
             page.add(ft.Text(value="\n"))
             #agregar el boton para calcular
-            boton_enviar = ft.ElevatedButton("Calcular la dirección", height=60)
+            def mostrar_respuesta(e):
+                direccion_con_regla_tres = r1.regla3(tb1.value)
+                dlg = ft.AlertDialog(
+                    title=ft.Text(direccion_con_regla_tres)
+                )
+                
+                page.dialog = dlg
+                dlg.open = True
+                page.update()
+                
+            boton_enviar = ft.ElevatedButton("Calcular la dirección", height=60, on_click=mostrar_respuesta)
             page.add(boton_enviar) #agregar el boton para calcular la direccion ip (esto hace la funcionalidad)
             
         else:
